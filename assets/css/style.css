@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --main-bg: bisque;
+    --nav-bg: orangered;
+    --hamburger-bg: bisque;
+    --free-seat-bg: green;
+    --free-seat-clr: whitesmoke;
+    --occupied-seat-bg: red;
+    --occupied-seat-clr: whitesmoke;
+    --reserve-seat-bg: orange;
+    --link-clr: whitesmoke;
+    --seat-size-w: 50px;
+    --seat-size-h: 50px;
+}
+
+html, body {
+    background-color: var(--main-bg);
+}
+
+.navbar.navbar-expand-lg {
+    background-color: var(--nav-bg);
+}
+
+.nav-link, .navbar-brand {
+    color: var(--link-clr);
+}
+
+.navbar-toggler {
+    background-color: var(--hamburger-bg);
+}
+
+.seat-box {
+    width: var(--seat-size-w);
+    height: var(--seat-size-h);
+}
+
+[type=checkbox] {
+    display: none;
+}
+
+/* szabad székek */
+div:has([type=checkbox]:not(:checked)) {
+    background-color: var(--free-seat-bg);
+    color: var(--free-seat-clr);
+    border-color: var(--free-seat-bg);
+}
+
+/* korábban lefoglalt székek */
+.occupied {
+    background-color: var(--occupied-seat-bg);
+    color: var(--occupied-seat-clr);
+    border-color: var(--occupied-seat-bg);
+}
+
+/* lefoglalásra készülő székek */
+div:has(:not([type=checkbox][disabled]):checked) {
+    background-color: var(--reserve-seat-bg);
+    border-color: var(--reserve-seat-bg);
+}
